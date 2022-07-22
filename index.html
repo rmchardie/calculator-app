@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Changes width of page depending on user's device -->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Favicon -->
+    <link
+      rel="shortcut icon"
+      href="images/favicon-32x32.png"
+      type="image/x-icon"
+    />
+    <title>Frontend Mentor | Calculator App</title>
+  </head>
+  <body>
+    <!-- Calculator -->
+    <div class="calculator">
+      <!-- Theme numbers -->
+      <div class="theme-numbers">
+        <div class="theme-one">1</div>
+        <div class="theme-two">2</div>
+        <div class="theme-three">3</div>
+      </div>
+      <!-- Title of app with theme switcher component -->
+      <div class="calculator-header">
+        <div class="calculator-logo">calc</div>
+        <div class="theme-switcher-container">
+          <div class="theme-switcher-text">theme</div>
+          <div class="theme-switcher">
+            <div id="thumb1" class="theme-switcher-thumb"></div>
+            <div id="thumb2" class="theme-switcher-thumb"></div>
+            <div id="thumb3" class="theme-switcher-thumb"></div>
+          </div>
+        </div>
+      </div>
+      <!-- Display -->
+      <div class="calculator-display">
+        <h1>0</h1>
+      </div>
+      <!-- Buttons -->
+      <div class="calculator-buttons">
+        <button id="7" value="7">7</button>
+        <button id="8" value="8">8</button>
+        <button id="9" value="9">9</button>
+        <button id="Backspace" class="delete-btn" value="Delete">DEL</button>
+        <button id="4" value="4">4</button>
+        <button id="5" value="5">5</button>
+        <button id="6" value="6">6</button>
+        <button id="+" class="operator" value="+">+</button>
+        <button id="1" value="1">1</button>
+        <button id="2" value="2">2</button>
+        <button id="3" value="3">3</button>
+        <button id="-" class="operator" value="-">-</button>
+        <button id="." class="decimal" value=".">.</button>
+        <button id="0" value="0">0</button>
+        <button id="/" class="operator" value="/">÷</button>
+        <button id="*" class="operator" value="*">×</button>
+        <button id="Escape" class="function reset-btn" value="Escape">
+          RESET
+        </button>
+        <button id="=" class="operator equals-btn" value="=">=</button>
+      </div>
+    </div>
+    <!-- Links to challenge and my Github -->
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
+        Frontend Mentor</a
+      >. Coded by <a href="https://www.github.com/rmchardie">Ross McHardie</a>.
+    </div>
+    <!-- Script that controls the functionality of the app -->
+    <script src="js/script.js"></script>
+  </body>
+</html>

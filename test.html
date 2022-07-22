@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input {
+        font-size: 24px;
+      }
+
+      .theme-slider {
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .sliderNumbers {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 12px;
+      }
+
+      .sliderContainer {
+        background-color: #0077ff;
+        width: 100px;
+        height: 40px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 25px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      .slider {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        background-color: #fff;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="inputBox" value="1" />
+    <button id="myBtn">Click me</button>
+    <div class="theme-slider">
+      <div class="sliderNumbers" id="sliderNumbers">
+        <div>1</div>
+        <div style="margin-left: 4px">2</div>
+        <div style="justify-self: flex-end">3</div>
+      </div>
+      <div class="sliderContainer" id="sliderContainer">
+        <div class="slider" id="slider"></div>
+      </div>
+    </div>
+
+    <script>
+      const inputBox = document.getElementById("inputBox");
+      const slider = document.getElementById("slider");
+      const sliderContainer = document.getElementById("sliderContainer");
+      const myBtn = document.getElementById("myBtn");
+
+      let i = 0;
+      let theme = 0;
+
+      function moveSlider() {
+        console.log(theme);
+        theme++;
+        if (theme === 1) {
+          sliderContainer.style.justifyContent = "flex-start";
+        }
+        if (theme === 2) {
+          sliderContainer.style.justifyContent = "center";
+        }
+        if (theme === 3) {
+          sliderContainer.style.justifyContent = "flex-end";
+          theme = 0;
+        }
+      }
+
+      function getDisplayNumber(number) {
+        const regex = /\B(?=(\d{3})+(?!\d))/g;
+
+        // Alternative syntax using RegExp constructor
+        // const regex = new RegExp('\\B(?=(\\d{3})+(?!\\d))', 'g')
+
+        const str = `333333333`;
+        let m;
+
+        while ((m = regex.exec(str)) !== null) {
+          // This is necessary to avoid infinite loops with zero-width matches
+          if (m.index === regex.lastIndex) {
+            regex.lastIndex++;
+          }
+
+          // The result can be accessed through the `m`-variable.
+          m.forEach((match, groupIndex) => {
+            // console.log(`Found match, group ${groupIndex}: ${match}`);
+            return str;
+          });
+        }
+        // const regex = /\B(?=(\d{3})+(?!\d))/g;
+
+        // // Alternative syntax using RegExp constructor
+        // // const regex = new RegExp('\\B(?=(\\d{3})+(?!\\d))', 'g')
+        // let str = number.toString();
+        // let m;
+
+        // while ((m = regex.exec(str)) !== null) {
+        //   // This is necessary to avoid infinite loops with zero-width matches
+        //   if (m.index === regex.lastIndex) {
+        //     regex.lastIndex++;
+        //   }
+        //   var num_parts = number.toString().split(".");
+        //   num_parts[0] = num_parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        //   return num_parts.join(".");
+        // }
+      }
+
+      myBtn.addEventListener("click", () => {
+        inputBox.value = inputBox.value + getDisplayNumber(i);
+      });
+
+      slider.addEventListener("click", moveSlider);
+    </script>
+  </body>
+</html>
