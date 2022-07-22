@@ -53,6 +53,8 @@ function checkPreference() {
         changeTheme(parseInt(storedTheme), thumb1, thumb2, thumb3);
         break;
     }
+  } else {
+    changeTheme(1, thumb3, thumb2, thumb1);
   }
 }
 
